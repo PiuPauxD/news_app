@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:news_app/Services/api_services.dart';
 
@@ -18,6 +17,8 @@ class _HomePageState extends State<HomePage> {
     'Finance',
     'Attractions',
   ];
+
+  List<Container> news = [];
   ApiService client = ApiService();
   @override
   Widget build(BuildContext context) {
@@ -28,92 +29,176 @@ class _HomePageState extends State<HomePage> {
           children: [
             Column(
               children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'News',
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.w600,
-                          color: Color.fromARGB(255, 255, 232, 229),
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.widgets_outlined,
-                          color: Color.fromARGB(255, 255, 232, 229),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 50,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: category.length,
-                    itemBuilder: (BuildContext context, index) {
-                      return Container(
-                        height: 40,
-                        margin: const EdgeInsets.only(right: 10),
-                        child: GestureDetector(
-                          onTap: () {},
-                          child: Text(
-                            category[index],
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                              color: Color.fromARGB(255, 255, 232, 229),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                Container(
-                  height: 500,
-                  width: 350,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Color.fromARGB(255, 255, 242, 197),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        child: Text(
-                          'Article',
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 1,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'News',
                           style: TextStyle(
-                            fontSize: 26,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 28,
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromARGB(255, 255, 232, 229),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        child: Text(
-                          'Description',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w500,
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.widgets_outlined,
+                            color: Color.fromARGB(255, 255, 232, 229),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 40),
+                Expanded(
+                  flex: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 50,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: category.length,
+                            itemBuilder: (BuildContext context, index) {
+                              return Container(
+                                height: 40,
+                                margin: const EdgeInsets.only(right: 10),
+                                child: GestureDetector(
+                                  onTap: () {},
+                                  child: Text(
+                                    category[index],
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color.fromARGB(255, 255, 232, 229),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        Container(
+                          height: 450,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(35),
+                            color: Color.fromARGB(255, 255, 242, 197),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 10),
+                                child: Text(
+                                  'Article',
+                                  style: TextStyle(
+                                    fontSize: 26,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 10),
+                                child: Text(
+                                  'Author',
+                                  style: TextStyle(
+                                    fontSize: 26,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 10),
+                                child: Text(
+                                  'Description',
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 15),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.only(right: 10),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(40),
+                                        color:
+                                            Color.fromARGB(233, 201, 191, 153),
+                                      ),
+                                      child: IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.thumb_up_alt_outlined,
+                                          size: 24,
+                                          color: Color.fromARGB(
+                                              255, 255, 242, 197),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: const EdgeInsets.only(right: 10),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(40),
+                                        color:
+                                            Color.fromARGB(233, 201, 191, 153),
+                                      ),
+                                      child: IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.bookmark_border_outlined,
+                                          size: 24,
+                                          color: Color.fromARGB(
+                                              255, 255, 242, 197),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(40),
+                                        color:
+                                            Color.fromARGB(233, 201, 191, 153),
+                                      ),
+                                      child: IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.share_outlined,
+                                          size: 24,
+                                        ),
+                                        color:
+                                            Color.fromARGB(255, 255, 242, 197),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -126,7 +211,7 @@ class _HomePageState extends State<HomePage> {
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(
-                            Icons.home_sharp,
+                            Icons.home_outlined,
                             size: 24,
                             color: Color.fromARGB(255, 17, 17, 17),
                           ),
@@ -141,7 +226,7 @@ class _HomePageState extends State<HomePage> {
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(
-                            Icons.favorite_sharp,
+                            Icons.search,
                             size: 24,
                             color: Color.fromARGB(255, 17, 17, 17),
                           ),
@@ -154,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.share_sharp, size: 24),
+                          icon: Icon(Icons.bookmark_border_outlined, size: 24),
                           color: Color.fromARGB(255, 17, 17, 17),
                         ),
                       ),

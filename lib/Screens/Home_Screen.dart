@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:news_app/Screens/Save_Screen.dart';
 import 'package:news_app/Services/api_services.dart';
 
 class HomePage extends StatefulWidget {
@@ -32,10 +33,8 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                   flex: 1,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 1,
-                    ),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 1),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -206,14 +205,14 @@ class _HomePageState extends State<HomePage> {
                         margin: const EdgeInsets.only(right: 10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(40),
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 74, 72, 72),
                         ),
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(
                             Icons.home_outlined,
                             size: 24,
-                            color: Color.fromARGB(255, 17, 17, 17),
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -221,26 +220,32 @@ class _HomePageState extends State<HomePage> {
                         margin: const EdgeInsets.only(right: 10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(40),
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 74, 72, 72),
                         ),
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(
                             Icons.search,
                             size: 24,
-                            color: Color.fromARGB(255, 17, 17, 17),
+                            color: Colors.white,
                           ),
                         ),
                       ),
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(40),
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 74, 72, 72),
                         ),
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SaveScreen()),
+                            );
+                          },
                           icon: Icon(Icons.bookmark_border_outlined, size: 24),
-                          color: Color.fromARGB(255, 17, 17, 17),
+                          color: Colors.white,
                         ),
                       ),
                     ],

@@ -1,6 +1,4 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:news_app/Screens/Save_Screen.dart';
 import 'package:news_app/Services/api_services.dart';
 
 class HomePage extends StatefulWidget {
@@ -92,13 +90,13 @@ class _HomePageState extends State<HomePage> {
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(35),
-                            color: Color.fromARGB(255, 255, 242, 197),
+                            color: const Color.fromARGB(255, 255, 242, 197),
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Padding(
+                              const Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 20, vertical: 10),
                                 child: Text(
@@ -109,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                               ),
-                              Padding(
+                              const Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 20, vertical: 10),
                                 child: Text(
@@ -119,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                               ),
-                              Padding(
+                              const Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 20, vertical: 10),
                                 child: Text(
@@ -140,12 +138,12 @@ class _HomePageState extends State<HomePage> {
                                       margin: const EdgeInsets.only(right: 10),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(40),
-                                        color:
-                                            Color.fromARGB(233, 201, 191, 153),
+                                        color: const Color.fromARGB(
+                                            233, 201, 191, 153),
                                       ),
                                       child: IconButton(
                                         onPressed: () {},
-                                        icon: Icon(
+                                        icon: const Icon(
                                           Icons.thumb_up_alt_outlined,
                                           size: 24,
                                           color: Color.fromARGB(
@@ -157,12 +155,12 @@ class _HomePageState extends State<HomePage> {
                                       margin: const EdgeInsets.only(right: 10),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(40),
-                                        color:
-                                            Color.fromARGB(233, 201, 191, 153),
+                                        color: const Color.fromARGB(
+                                            233, 201, 191, 153),
                                       ),
                                       child: IconButton(
                                         onPressed: () {},
-                                        icon: Icon(
+                                        icon: const Icon(
                                           Icons.bookmark_border_outlined,
                                           size: 24,
                                           color: Color.fromARGB(
@@ -173,17 +171,17 @@ class _HomePageState extends State<HomePage> {
                                     Container(
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(40),
-                                        color:
-                                            Color.fromARGB(233, 201, 191, 153),
+                                        color: const Color.fromARGB(
+                                            233, 201, 191, 153),
                                       ),
                                       child: IconButton(
                                         onPressed: () {},
-                                        icon: Icon(
+                                        icon: const Icon(
                                           Icons.share_outlined,
                                           size: 24,
                                         ),
-                                        color:
-                                            Color.fromARGB(255, 255, 242, 197),
+                                        color: const Color.fromARGB(
+                                            255, 255, 242, 197),
                                       ),
                                     ),
                                   ],
@@ -194,61 +192,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          color: Color.fromARGB(255, 74, 72, 72),
-                        ),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.home_outlined,
-                            size: 24,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          color: Color.fromARGB(255, 74, 72, 72),
-                        ),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.search,
-                            size: 24,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          color: Color.fromARGB(255, 74, 72, 72),
-                        ),
-                        child: IconButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SaveScreen()),
-                            );
-                          },
-                          icon: Icon(Icons.bookmark_border_outlined, size: 24),
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
                   ),
                 ),
               ],

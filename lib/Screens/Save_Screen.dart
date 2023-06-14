@@ -1,7 +1,5 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:news_app/Screens/Home_Screen.dart';
+import 'package:news_app/Screens/NavBar.dart';
 
 class SaveScreen extends StatefulWidget {
   const SaveScreen({super.key});
@@ -18,6 +16,9 @@ class _SaveScreenState extends State<SaveScreen> {
       body: SafeArea(
         child: Stack(
           children: [
+            const SizedBox(
+              height: double.infinity,
+            ),
             Column(
               children: [
                 Expanded(
@@ -36,7 +37,11 @@ class _SaveScreenState extends State<SaveScreen> {
                             ),
                             child: IconButton(
                               onPressed: () {
-                                Navigator.pop(context);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NavBar()),
+                                );
                               },
                               icon: const Icon(
                                 Icons.arrow_back_outlined,
@@ -62,8 +67,9 @@ class _SaveScreenState extends State<SaveScreen> {
                   ),
                 ),
                 Expanded(
-                  flex: 6,
+                  flex: 5,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -79,7 +85,7 @@ class _SaveScreenState extends State<SaveScreen> {
                                 ),
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 10),
-                                child: TextField(
+                                child: const TextField(
                                   decoration: InputDecoration(
                                     labelText: 'Search news',
                                     labelStyle: TextStyle(
@@ -99,9 +105,7 @@ class _SaveScreenState extends State<SaveScreen> {
                                   color: const Color.fromARGB(255, 74, 72, 72),
                                 ),
                                 child: IconButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
+                                  onPressed: () {},
                                   icon: const Icon(
                                     Icons.search_outlined,
                                     size: 24,
@@ -113,16 +117,19 @@ class _SaveScreenState extends State<SaveScreen> {
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 20),
-                        child: Expanded(
+                      Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 60,
+                          ),
                           child: Container(
-                            height: 450,
+                            height: 400,
                             width: double.infinity,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(35),
-                              color: Color.fromARGB(255, 255, 242, 197),
+                              color: const Color.fromARGB(255, 255, 242, 197),
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -163,61 +170,6 @@ class _SaveScreenState extends State<SaveScreen> {
                               ],
                             ),
                           ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          color: Color.fromARGB(255, 74, 72, 72),
-                        ),
-                        child: IconButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomePage()),
-                            );
-                          },
-                          icon: Icon(
-                            Icons.home_outlined,
-                            size: 24,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          color: Color.fromARGB(255, 74, 72, 72),
-                        ),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.search,
-                            size: 24,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          color: Colors.white,
-                        ),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.bookmark_border_outlined, size: 24),
-                          color: Colors.black,
                         ),
                       ),
                     ],
